@@ -26,6 +26,7 @@ def generate_barcode(request, code):
 def generate_code(request):
     if request.method == 'POST':
         code = request.POST.get('code')
+        generate_barcode(request, code)
         # Add your logic to handle the code here
         return HttpResponse(f'Code {code} generated successfully!')
     return render(request, 'barcode reader/generate.html')
